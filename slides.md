@@ -327,11 +327,13 @@ layout: section
 
 矫治方案审批系统：医生提交 → 技术审核 → 主任审批。4 个微服务 + 审批工作台前端。
 
-### 演示流程（AI-DLC）
+### 演示流程（AI-DLC 三阶段）
 
 **Inception** → 需求拆解 → 用户故事 → 架构设计
 
-**Construction** → API 设计 → 代码生成 → Docker 容器化
+**Construction** → 功能设计 → 代码生成 → 构建测试
+
+**Operations** → Docker 容器化 → 部署验证
 
 </div>
 
