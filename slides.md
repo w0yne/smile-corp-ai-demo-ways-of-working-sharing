@@ -277,33 +277,21 @@ layout: section
 
 <div>
 
-### 流程
+### 需求
 
-<ProcessChevrons
-  :steps="[
-    { label: '需求文档', color: '#6366f1' },
-    { label: 'Spec', color: '#8b5cf6' },
-    { label: 'Plan', color: '#a78bfa' },
-    { label: '17 Tasks', color: '#c4b5fd' },
-    { label: '代码生成', color: '#16a34a' }
-  ]"
-/>
+做一个「正畸病例追踪看板」单页应用：
+- 患者列表（姓名、矫治阶段、复诊日期、医生）
+- 卡片式 UI，按状态筛选
+- 响应式前端，纯静态页面，mock 数据
 
-- Kiro Spec Kit 将模糊需求 → 结构化规格
-- 自动拆解为 17 个可执行任务
-- Kiro CLI 逐个完成代码生成
+### 演示流程
 
-### 核心提示词
-
-```
-Build an orthodontic case tracking 
-dashboard - SPA with patient cards 
-showing name, treatment plan type, 
-current stage, status, next appointment.
-Support filtering by status, real-time 
-search, statistics summary bar. 
-Mock data 10-15 patients. zh-CN locale.
-```
+1. `specify init` 初始化项目
+2. `/speckit.constitution` 定义项目原则
+3. `/speckit.specify` 自然语言描述需求 → 自动生成规格
+4. `/speckit.plan` 生成技术方案
+5. `/speckit.implement` 生成前端代码
+6. 浏览器预览效果
 
 </div>
 
@@ -315,6 +303,13 @@ Mock data 10-15 patients. zh-CN locale.
 - ✅ 患者列表 + 状态筛选
 - ✅ 模拟数据 + 图表展示
 - ✅ 完整可运行的前端看板
+
+### 展示重点
+
+- 需求 → 规格 → 代码，**全程自然语言驱动**
+- 规格文档聚焦 WHAT/WHY，不碰 HOW
+- 前端实时预览
+- Kiro CLI 的交互体验
 
 </div>
 
@@ -328,29 +323,24 @@ Mock data 10-15 patients. zh-CN locale.
 
 <div>
 
-### AI-DLC 是什么？
+### 需求
 
-**A**I-**D**riven **L**ifecycle **C**onstruction
+矫治方案审批系统：
+- **业务流程**：医生提交 → 技术审核 → 主任审批
+- **4 个微服务**：Plan / Approval / Notification / Gateway
+- **前端**：审批工作台（待审批列表、详情、操作）
 
-用 Claude Code 从架构设计到编码全自动：
+### 演示流程（AI-DLC）
 
-1. 📋 需求分析 → 用户故事
-2. 🏗️ 架构设计 → 微服务拆分
-3. 💻 代码生成 → 6 个服务包
-4. 🐳 容器化 → Docker Compose
-5. ✅ 集成测试 → 全功能验证
+**Inception 阶段**
+1. AI 理解并拆解需求
+2. 生成用户故事和验收标准
+3. 微服务架构设计
 
-### 核心提示词
-
-```
-构建矫治方案审批微服务系统：
-医生提交方案 → 技术审核 → 主任审批
-4 个微服务: Plan / Approval / 
-Notification / Gateway
-角色: 医生、审核员、审批人
-状态流转: draft → pending-review 
-→ pending-approval → approved
-```
+**Construction 阶段**
+4. 数据模型、API 设计
+5. Claude Code 生成微服务代码
+6. Docker 容器化 + 集成测试
 
 </div>
 
@@ -365,11 +355,12 @@ Notification / Gateway
 | API 端点 | 12+ 个 |
 | 完整功能 | 登录/创建/审核/审批/通知 |
 
-### 踩过的坑
+### 展示重点
 
-- 中文用户名在 HTTP Header 需要编码
-- Docker 网络内前端代理 URL 不同
-- Rate limit 需要调高（Demo 场景）
+- AI-DLC 从 Inception → Construction 完整流程
+- 每步**人工审批**的控制感
+- 完整的 `aidlc-docs/` 文档输出
+- Claude Code 直接写代码的过程
 
 </div>
 
