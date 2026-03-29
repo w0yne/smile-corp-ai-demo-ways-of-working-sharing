@@ -1,9 +1,9 @@
 {
-  "name": "ways-of-working-sharing",
+  "name": "smile-corp-ai-demo-ways-of-working-sharing",
   "private": true,
   "scripts": {
     "dev": "slidev --open",
-    "build": "slidev build --base /ways-of-working-sharing/",
+    "build": "slidev build --base /smile-corp-ai-demo-ways-of-working-sharing/",
     "export": "slidev export"
   },
   "dependencies": {

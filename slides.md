@@ -45,9 +45,9 @@ layout: section
 
 <div>
 
-### 时代天使（Angelalign）
+### Smile Corp
 
-- 国内正畸行业头部企业
+- 正畸行业头部企业
 - 研发 + 制造 + 数字化，IT 团队 ~50 人
 - 内部系统：Java / Spring / React / Oracle
 - 已有 AI 意识，但**缺乏 AI 编程落地路径**
