@@ -626,16 +626,6 @@ Playwright 验证：
 </div>
 
 ---
-layout: section
----
-
-<SectionDivider
-  section="Part Four"
-  title="踩坑与教训"
-  subtitle="那些花了真金白银买来的经验"
-/>
-
----
 
 # Demo 2 项目产出一览
 
@@ -689,6 +679,16 @@ CLAUDE.md               ← 团队共享大脑
 </div>
 
 </div>
+
+---
+layout: section
+---
+
+<SectionDivider
+  section="Part Four"
+  title="踩坑与教训"
+  subtitle="那些花了真金白银买来的经验"
+/>
 
 ---
 
