@@ -238,7 +238,7 @@ layout: section
 <SectionDivider
   section="Part Three"
   title="Demo 1：全流程三场景"
-  subtitle="3月19日 — 从需求到部署，1 小时跑完"
+  subtitle="基于 OpenClaw — 从需求到部署，1 小时展示完"
 />
 
 ---
@@ -251,7 +251,7 @@ layout: section
     { key: 'theme', label: '主题' },
     { key: 'tool', label: '工具', width: '22%' },
     { key: 'output', label: '产出物' },
-    { key: 'time', label: '用时', width: '10%', align: 'center' }
+    { key: 'time', label: '演示用时', width: '12%', align: 'center' }
   ]"
   :rows="[
     { scenario: '场景一', theme: '患者病例追踪看板（前端）', tool: 'Spec Kit + Kiro CLI', output: 'React SPA + 模拟数据', time: '~15min' },
@@ -262,6 +262,8 @@ layout: section
 />
 
 <div style="margin-top: 1.5rem;">
+
+**现场展示方式**：演示我与 OpenClaw 的对话过程 + 最终生成的代码和前端功能效果
 
 **故事线**：三个场景**递进串联** — 前端 → 后端全栈 → 云部署，展示 AI 参与完整软件生命周期
 
@@ -291,6 +293,18 @@ layout: section
 - 自动拆解为 17 个可执行任务
 - Kiro CLI 逐个完成代码生成
 
+### 核心提示词
+
+```
+Build an orthodontic case tracking 
+dashboard - SPA with patient cards 
+showing name, treatment plan type, 
+current stage, status, next appointment.
+Support filtering by status, real-time 
+search, statistics summary bar. 
+Mock data 10-15 patients. zh-CN locale.
+```
+
 </div>
 
 <div>
@@ -301,10 +315,6 @@ layout: section
 - ✅ 患者列表 + 状态筛选
 - ✅ 模拟数据 + 图表展示
 - ✅ 完整可运行的前端看板
-
-### 客户反馈
-
-> "从需求到可运行的前端，比我们团队手写快 5-10 倍"
 
 </div>
 
@@ -329,6 +339,18 @@ layout: section
 3. 💻 代码生成 → 6 个服务包
 4. 🐳 容器化 → Docker Compose
 5. ✅ 集成测试 → 全功能验证
+
+### 核心提示词
+
+```
+构建矫治方案审批微服务系统：
+医生提交方案 → 技术审核 → 主任审批
+4 个微服务: Plan / Approval / 
+Notification / Gateway
+角色: 医生、审核员、审批人
+状态流转: draft → pending-review 
+→ pending-approval → approved
+```
 
 </div>
 
@@ -361,8 +383,17 @@ layout: section
 
 <div>
 
-### 架构
+### 架构演进
 
+**v1（初始方案）**
+```
+Client → Public ALB:80 → ECS Fargate
+       → Aurora PostgreSQL v2
+```
+
+**⚠️ 公司安全扫描自动关闭了 80 端口！**
+
+**v2（演进方案）**
 ```
 Client → SSM Port Forward → EC2
   → socat → Internal ALB
@@ -370,30 +401,30 @@ Client → SSM Port Forward → EC2
   → Aurora PostgreSQL v2
 ```
 
-- 让 Agent 写 CDK Stack + 部署脚本
-- **Internal ALB** 避免安全扫描删端口
-- VPC Peering 连通 EC2 和 CDK VPC
+- 将安全事件反馈给 OpenClaw
+- Agent 自主设计 Internal ALB + VPC Peering 方案
 
 </div>
 
 <div>
 
+### 安全启示
+
+<div style="padding: 0.8rem; background: #fef2f2; border-left: 4px solid #ef4444; border-radius: 8px; font-size: 0.8rem; margin-bottom: 1rem;">
+⚠️ <strong>Agent 部署的资源也会被安全扫描</strong><br/>
+AI 生成的 CDK 默认用 Public ALB + HTTP，不符合企业安全策略。但把问题告诉 Agent，它能自主演进架构方案。
+</div>
+
 ### 现场效果
 
-- 🟢 登录页面 ✅
-- 🟢 创建方案（多角色） ✅
-- 🟢 审核/驳回/审批 ✅
-- 🟢 通知铃铛（未读消息） ✅
-- 🟢 Dashboard 统计 ✅
-- 🟢 状态筛选 ✅
+- 🟢 登录 / 创建方案 / 审核审批 ✅
+- 🟢 通知铃铛 / Dashboard / 状态筛选 ✅
+- **11 项功能测试全部通过**
 
-**11 项功能测试全部通过**
-
-### 踩的坑
+### 其他踩坑
 
 - Aurora PG 15.4 不可用 → 16.6
 - Docker ARM64 镜像 + x86 Fargate = 💥
-- 安全扫描删 ALB Listener → Internal ALB
 
 </div>
 
@@ -406,7 +437,7 @@ layout: section
 <SectionDivider
   section="Part Three (cont.)"
   title="Demo 2：多 Agent + 深度场景"
-  subtitle="3月25-26日 — SmileGuard 矫治风险预警仪表盘"
+  subtitle="基于 Claude Code — SmileGuard 矫治风险预警仪表盘"
 />
 
 ---
@@ -417,29 +448,29 @@ layout: section
 
 <div>
 
-### Demo 1 的局限
+### 递进关系
 
-- 单人开发模式，客户说："**我们团队有多个开发**"
-- 前后端独立，没展示**并行协作**
-- CDK 部署偏运维视角，开发体感不足
+- Demo 1 用 **OpenClaw** 展示了端到端全流程
+- 客户对其中 Claude Code 的能力产生兴趣
+- Demo 2 自然深入 **Claude Code** 的高级用法
+- 两次 Demo 是不同工具、不同场景的递进
 
 </div>
 
 <div>
 
-### Demo 2 目标
+### 场景设计思路
 
-- 🎯 展示 **Agent Teams**：3 个 Agent 并行开发
-- 🎯 展示 **Superpowers**：增强版开发流程
-- 🎯 展示 **Playwright**：AI 驱动 E2E 测试
-- 🎯 贴近真实业务：正畸风险预警
+- 要求 OpenClaw 帮我设计 Demo 场景时，明确告诉它：**避开 Demo 1 用过的病例管理场景**
+- Agent 基于正畸行业背景，提出了**矫治风险预警**这个新方向
+- 场景既贴近客户业务，又不跟上次重复
 
 </div>
 
 </div>
 
 <div style="margin-top: 1.5rem; padding: 1rem 1.5rem; background: #f0fdf4; border-left: 4px solid #16a34a; border-radius: 8px; font-size: 0.9rem;">
-💡 <strong>关键决策</strong>：从"AI 能写代码"升级到"AI 能像一个开发团队一样协作"
+💡 <strong>关键点</strong>：OpenClaw 适合端到端协调（对话式、多工具调度），Claude Code 适合深度编码（多 Agent 并行、复杂项目）。两次 Demo 展示不同使用场景。
 </div>
 
 ---
@@ -540,92 +571,100 @@ layout: section
 
 ---
 
-# 💸 成本实况
+# 💸 成本与踩坑
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+
+<div>
+
+### Demo 成本
 
 <StatHighlight
   :stats="[
-    { value: '$0.32', label: '每次 PR 安全扫描', color: '#16a34a' },
-    { value: '$20.74', label: 'Superpowers 调试烧掉的', color: '#ef4444' },
-    { value: '~$5', label: 'Demo 1 全流程', color: '#0284c7' },
-    { value: '3 个', label: '被限流的 AWS 账号', color: '#f59e0b' }
+    { value: '~$250', label: 'Demo 1 总成本', color: '#0284c7' },
+    { value: '~$100+', label: 'Demo 2 总成本', color: '#16a34a' }
   ]"
 />
 
-<div style="margin-top: 2rem;">
+<div style="margin-top: 1rem; font-size: 0.85rem;">
 
-### Bedrock 限流是 Demo 最大的不确定性
-
-- Opus 4.6 输出速度在 Bedrock 上比直连慢 2-3x
-- **一个 AWS 账号不够用** — Demo 前准备 2-3 个备用
-- Superpowers writing-plans + Opus = 💥（40K-50K token 输出卡死）
-- `ANTHROPIC_MODEL` 环境变量会覆盖 settings.json，容易踩坑
+- 第二次效率提升，成本也降了
+- 其中 **$20.74 白烧**在 Superpowers 调试上
 
 </div>
 
----
+</div>
 
-# 关键教训（适用于所有 SA）
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
-
-<div style="display: flex; gap: 1rem; padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-<div style="font-size: 1.6rem; font-weight: 700; color: #0284c7; min-width: 36px;">1</div>
 <div>
-<div style="font-size: 1rem; font-weight: 600;">先读官方文档再动手</div>
-<div style="font-size: 0.72rem; color: #888; margin-top: 0.2rem;">docs/solutions.md 有完整范例，早看到能省 1 小时</div>
-</div>
+
+### Superpowers Writing-Plans 踩坑
+
+<div style="padding: 0.8rem; background: #fef2f2; border-left: 4px solid #ef4444; border-radius: 8px; font-size: 0.8rem;">
+仅 Demo 2 遇到：writing-plans 对整个项目一次性生成计划 → 输出量 40K-50K token → 超限卡死。<br/><br/>
+<strong>根因</strong>：不是 Bedrock 限流，是 Superpowers 本身的设计问题<br/>
+<strong>解法</strong>：按模块拆分，分别生成 plan
 </div>
 
-<div style="display: flex; gap: 1rem; padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-<div style="font-size: 1.6rem; font-weight: 700; color: #16a34a; min-width: 36px;">2</div>
-<div>
-<div style="font-size: 1rem; font-weight: 600;">先本地验证再上云</div>
-<div style="font-size: 0.72rem; color: #888; margin-top: 0.2rem;">别每次改一行代码就重新部署等 6 分钟</div>
-</div>
-</div>
-
-<div style="display: flex; gap: 1rem; padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-<div style="font-size: 1.6rem; font-weight: 700; color: #f59e0b; min-width: 36px;">3</div>
-<div>
-<div style="font-size: 1rem; font-weight: 600;">连续失败 2 次就停下来读源码</div>
-<div style="font-size: 0.72rem; color: #888; margin-top: 0.2rem;">盲试参数不如理解机制，读源码比猜快 10 倍</div>
-</div>
-</div>
-
-<div style="display: flex; gap: 1rem; padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-<div style="font-size: 1.6rem; font-weight: 700; color: #ef4444; min-width: 36px;">4</div>
-<div>
-<div style="font-size: 1rem; font-weight: 600;">客户数据绝对不推 GitHub</div>
-<div style="font-size: 0.72rem; color: #888; margin-top: 0.2rem;">犯过一次，紧急 filter-repo 修复。这是红线</div>
-</div>
 </div>
 
 </div>
 
 ---
 
-# 可复用的方法论
+# 给 AI 的规则：SA 应该怎么要求 Agent
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+
+<div>
+
+### 写进 CLAUDE.md / Prompt 的规则
+
+<div style="display: flex; gap: 1rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 0.5rem;">
+<div style="font-size: 1.2rem; font-weight: 700; color: #0284c7;">1</div>
+<div style="font-size: 0.85rem;"><strong>先读文档再动手</strong><br/><span style="color:#888;">要求 Agent 先查 examples/ 和官方文档</span></div>
+</div>
+
+<div style="display: flex; gap: 1rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 0.5rem;">
+<div style="font-size: 1.2rem; font-weight: 700; color: #16a34a;">2</div>
+<div style="font-size: 0.85rem;"><strong>先本地验证再部署</strong><br/><span style="color:#888;">不要每次改一行就重新部署等 6 分钟</span></div>
+</div>
+
+<div style="display: flex; gap: 1rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 0.5rem;">
+<div style="font-size: 1.2rem; font-weight: 700; color: #f59e0b;">3</div>
+<div style="font-size: 0.85rem;"><strong>连续失败 2 次就读源码</strong><br/><span style="color:#888;">盲试参数不如理解机制</span></div>
+</div>
+
+<div style="display: flex; gap: 1rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px;">
+<div style="font-size: 1.2rem; font-weight: 700; color: #ef4444;">4</div>
+<div style="font-size: 0.85rem;"><strong>客户数据绝对不推 GitHub</strong><br/><span style="color:#888;">git add 之前必须检查敏感信息</span></div>
+</div>
+
+</div>
+
+<div>
+
+### SA 自己的纪律
 
 <TChart
-  leftTitle="❌ 不要这样做"
-  rightTitle="✅ 应该这样做"
+  leftTitle="❌ 别这样"
+  rightTitle="✅ 应该这样"
   leftColor="#ef4444"
   rightColor="#16a34a"
   :leftItems="[
-    { text: '直接上手写代码，边做边查' },
-    { text: '每次改一行就部署到云上等' },
-    { text: '一次改三个变量同时调试' },
-    { text: '用 subagent 替代客户指定的工具' },
-    { text: '不确定时说「应该没问题了」' }
+    { text: '让 Agent 自由发挥不加约束' },
+    { text: '不确定时说「应该没问题了」' },
+    { text: '用 subagent 替代客户指定的工具' }
   ]"
   :rightItems="[
-    { text: '先找官方文档 + examples/' },
-    { text: '先本地验证，通过后再部署' },
-    { text: '一次只改一个变量，验证后再改下一个' },
-    { text: '用客户要求的工具（Kiro 就用 Kiro）' },
-    { text: '诚实报告不确定性：「试一下看看」' }
+    { text: '在 CLAUDE.md 里写清楚规则' },
+    { text: '诚实说「试一下看看」' },
+    { text: '客户要用 Kiro 就用 Kiro' }
   ]"
 />
+
+</div>
+
+</div>
 
 ---
 
