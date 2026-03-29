@@ -723,12 +723,12 @@ layout: section
 
 <div>
 
-### Demo 1 资源
-- 📦 [openclaw-ai-programming-demo](https://github.com/w0yne/openclaw-ai-programming-demo)
-- 🗺️ [架构图 (GitHub Pages)](https://github.com/w0yne/openclaw-ai-programming-demo-architecture)
+### Demo 1 资源（基于 OpenClaw）
+- 🔒 [openclaw-ai-programming-demo](https://github.com/w0yne/openclaw-ai-programming-demo) *(private)*
+- 🗺️ [架构图 (GitHub Pages)](https://w0yne.github.io/openclaw-ai-programming-demo-architecture/)
 
-### Demo 2 资源
-- 📦 [smile-demo-project](https://github.com/w0yne/smile-demo-project)
+### Demo 2 资源（基于 Claude Code）
+- 🔒 [smile-demo-project](https://github.com/w0yne/smile-demo-project) *(private)*
 
 </div>
 
@@ -739,9 +739,6 @@ layout: section
 - 🔗 [Claude Code Action](https://github.com/anthropics/claude-code-action)
 - 🔗 [Kiro CLI](https://kiro.dev/docs/cli/)
 - 🔗 [Agent Teams](https://code.claude.com/docs/agent-teams)
-
-### Slides 模板
-- 📊 [consulting-slides-demo](https://github.com/w0yne/consulting-slides-demo)
 
 </div>
 
