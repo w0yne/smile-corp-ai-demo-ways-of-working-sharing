@@ -319,28 +319,19 @@ layout: section
 
 # 场景二：AI-DLC 全栈微服务
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 0.8rem;">
 
 <div>
 
 ### 需求
 
-矫治方案审批系统：
-- **业务流程**：医生提交 → 技术审核 → 主任审批
-- **4 个微服务**：Plan / Approval / Notification / Gateway
-- **前端**：审批工作台（待审批列表、详情、操作）
+矫治方案审批系统：医生提交 → 技术审核 → 主任审批。4 个微服务 + 审批工作台前端。
 
 ### 演示流程（AI-DLC）
 
-**Inception 阶段**
-1. AI 理解并拆解需求
-2. 生成用户故事和验收标准
-3. 微服务架构设计
+**Inception** → 需求拆解 → 用户故事 → 架构设计
 
-**Construction 阶段**
-4. 数据模型、API 设计
-5. Claude Code 生成微服务代码
-6. Docker 容器化 + 集成测试
+**Construction** → API 设计 → 代码生成 → Docker 容器化
 
 </div>
 
@@ -350,16 +341,14 @@ layout: section
 
 | 指标 | 数量 |
 |------|------|
-| 微服务包 | 6 个 |
-| 源文件 | 67 个 |
-| API 端点 | 12+ 个 |
+| 微服务 / 源文件 / API | 6 个 / 67 个 / 12+ |
 | 完整功能 | 登录/创建/审核/审批/通知 |
 
 ### 展示重点
 
-- AI-DLC 从 Inception → Construction 完整流程
+- Inception → Construction 完整流程
 - 每步**人工审批**的控制感
-- 完整的 `aidlc-docs/` 文档输出
+- 完整 `aidlc-docs/` 文档输出
 - Claude Code 直接写代码的过程
 
 </div>
