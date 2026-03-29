@@ -682,43 +682,6 @@ layout: section
 
 ---
 
-# 整体时间线回顾
-
-<SwimLaneTimeline
-  :periods="['3/19', '3/20-22', '3/23', '3/24', '3/25', '3/26']"
-  :lanes="[
-    { label: 'Demo 准备', color: '#0284c7', segments: [
-      { span: 1, label: 'Demo 1 三场景', shade: 'dark' },
-      { span: 2, label: '客户反馈收集', shade: 'light' },
-      { span: 1, label: 'POC 调研', shade: 'medium' },
-      { span: 1, label: '6 Cases 跑完', shade: 'dark' },
-      { span: 1, label: 'SmileGuard', shade: 'dark' }
-    ]},
-    { label: '工具调试', color: '#f59e0b', segments: [
-      { span: 1, label: 'CDK 部署', shade: 'medium' },
-      { span: 1, label: '', shade: 'light' },
-      { span: 1, label: 'CI 安全扫描', shade: 'dark' },
-      { span: 1, label: 'Whisper 部署', shade: 'medium' },
-      { span: 1, label: 'Kiro CLI', shade: 'medium' },
-      { span: 1, label: 'Agent Teams', shade: 'dark' }
-    ]},
-    { label: '踩坑修复', color: '#ef4444', segments: [
-      { span: 1, label: 'ARM64/ALB', shade: 'medium' },
-      { span: 1, label: '', shade: 'light' },
-      { span: 1, label: 'MCP/权限', shade: 'dark' },
-      { span: 1, label: 'transformers', shade: 'medium' },
-      { span: 1, label: '数据泄露修复', shade: 'dark' },
-      { span: 1, label: 'Superpowers', shade: 'dark' }
-    ]}
-  ]"
-  :milestones="[
-    { text: 'Demo 1 交付' },
-    { text: 'Demo 2 交付' }
-  ]"
-/>
-
----
-
 # 给 SA 同事的建议
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
