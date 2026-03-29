@@ -411,6 +411,78 @@ AI 生成的 CDK 默认用 Public ALB + HTTP，不符合企业安全策略。但
 </div>
 
 ---
+
+# Demo 1 项目产出一览
+
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+
+<div>
+
+### 场景一：前端看板
+
+```
+scenario-1-speckit/
+├── requirements/
+│   └── requirement.md
+├── specs/              ← Spec Kit 生成
+│   └── 001-ortho-case-dashboard/
+├── data/patients.js    ← Mock 数据
+├── scripts/
+│   ├── app.js
+│   ├── filter.js
+│   └── render.js
+├── styles/
+├── index.html
+└── package.json
+```
+
+</div>
+
+<div>
+
+### 场景二：全栈微服务
+
+```
+scenario-2-aidlc/
+├── aidlc-docs/         ← AI-DLC 文档
+│   ├── inception/
+│   └── construction/
+├── packages/           ← 6 个微服务
+│   ├── api-gateway/
+│   ├── plan-service/
+│   ├── approval-service/
+│   ├── notification-svc/
+│   ├── frontend/
+│   └── shared-types/
+├── CLAUDE.md
+└── docker-compose.yml
+```
+
+</div>
+
+<div>
+
+### 场景三：AWS 部署
+
+```
+scenario-3-deploy/
+├── app/                ← 应用代码
+│   ├── packages/
+│   └── docker-compose.yml
+├── infra/              ← CDK Stack
+│   ├── lib/
+│   │   └── ortho-stack.ts
+│   ├── bin/
+│   ├── cdk.json
+│   └── outputs.json
+└── deploy.sh
+```
+
+</div>
+
+</div>
+
+---
 layout: section
 ---
 
@@ -560,6 +632,61 @@ layout: section
   title="踩坑与教训"
   subtitle="那些花了真金白银买来的经验"
 />
+
+---
+
+# Demo 2 项目产出一览
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+
+<div>
+
+### 后端：Maven 多模块
+
+```
+smile-backend/
+├── smile-common/       ← 共享模型
+│   └── src/main/java/
+├── smile-data/         ← 数据层
+│   └── src/main/java/  (data-engineer)
+├── smile-engine/       ← 风险引擎
+│   └── src/main/java/  (risk-engine)
+├── smile-api/          ← API 层
+│   └── src/main/java/  (api-developer)
+└── pom.xml
+```
+
+<div style="font-size: 0.75rem; color: #888; margin-top: 0.5rem;">
+每个模块对应一个 Agent，目录天然隔离
+</div>
+
+</div>
+
+<div>
+
+### 前端 + 文档
+
+```
+smile-frontend/
+├── src/
+│   ├── components/     ← React 组件
+│   ├── pages/          ← 仪表盘页面
+│   └── App.tsx
+├── index.html
+└── package.json
+
+docs/
+├── PRD.md              ← 产品需求
+├── API.md              ← 接口契约
+├── BACKEND-DESIGN.md   ← 后端设计
+└── superpowers/        ← Plan 文档
+
+CLAUDE.md               ← 团队共享大脑
+```
+
+</div>
+
+</div>
 
 ---
 
