@@ -201,16 +201,31 @@ Spec Kit → Plan → Tasks<br/>
 
 </div>
 
-<div style="margin-top: 1.5rem; padding: 1rem; background: #f8fafc; border-radius: 8px;">
+<div style="margin-top: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap;">
 
-```
-我在飞书跟 Agent 对话 → Agent 在 EC2 上用 Claude Code / Kiro CLI 执行
-     → 代码生成 → 自动测试 → 部署到 AWS → 我在本地验证 → 推到 GitHub
-```
+<div style="background: #0284c7; color: white; padding: 0.5rem 1rem; border-radius: 8px 0 0 8px; font-size: 0.8rem; font-weight: 600;">💬 飞书对话</div>
+<div style="width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 12px solid #0284c7;"></div>
+
+<div style="background: #7c3aed; color: white; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600;">🤖 Agent 执行</div>
+<div style="width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 12px solid #7c3aed;"></div>
+
+<div style="background: #f59e0b; color: white; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600;">⚙️ 代码生成</div>
+<div style="width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 12px solid #f59e0b;"></div>
+
+<div style="background: #16a34a; color: white; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600;">🧪 自动测试</div>
+<div style="width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 12px solid #16a34a;"></div>
+
+<div style="background: #ea580c; color: white; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600;">🚀 部署 AWS</div>
+<div style="width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 12px solid #ea580c;"></div>
+
+<div style="background: #0f172a; color: white; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600;">✅ 本地验证</div>
+<div style="width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 12px solid #0f172a;"></div>
+
+<div style="background: #111; color: white; padding: 0.5rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.8rem; font-weight: 600;">🐙 推到 GitHub</div>
 
 </div>
 
-<div style="margin-top: 1rem; font-size: 0.85rem; color: #666;">
+<div style="margin-top: 1.2rem; text-align: center; font-size: 0.85rem; color: #666;">
 💬 全程通过<strong>飞书消息</strong>与 Agent 交互，不需要 SSH 到服务器手动操作
 </div>
 
