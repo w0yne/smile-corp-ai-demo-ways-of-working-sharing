@@ -690,10 +690,9 @@ layout: section
 
 ### 🎯 Demo 准备清单
 
-- ☐ Bedrock 账号配额确认（Opus/Sonnet）
-- ☐ 准备 2-3 个备用 AWS 账号
 - ☐ 提前跑一遍完整 Demo flow
 - ☐ GitHub repo 确认无客户敏感数据
+- ☐ 给 AI 写好规则（CLAUDE.md / AGENTS.md）
 - ☐ 网络环境测试（VPN/代理可能影响 API）
 - ☐ 准备离线 fallback 方案
 
