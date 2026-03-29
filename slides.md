@@ -497,46 +497,58 @@ Playwright 验证：
 
 ---
 
-# Agent Teams 最佳实践（精华）
+# Agent Teams 最佳实践
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 0.8rem;">
 
-<div style="display: flex; gap: 1rem; padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-<div style="font-size: 1.6rem; font-weight: 700; color: #0284c7; min-width: 36px;">1</div>
+<div style="display: flex; gap: 0.8rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 10px;">
+<div style="font-size: 1.4rem; font-weight: 700; color: #0284c7; min-width: 30px;">1</div>
 <div>
-<div style="font-size: 1rem; font-weight: 600;">3 个 Agent 是甜区</div>
-<div style="font-size: 0.72rem; color: #888; margin-top: 0.2rem;">太少失去并行优势，太多协调成本飙升</div>
+<div style="font-size: 0.9rem; font-weight: 600;">3 个 Agent 是甜区</div>
+<div style="font-size: 0.7rem; color: #888; margin-top: 0.15rem;">太少失去并行优势，太多协调成本飙升。按后端模块分工最高效</div>
 </div>
 </div>
 
-<div style="display: flex; gap: 1rem; padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-<div style="font-size: 1.6rem; font-weight: 700; color: #16a34a; min-width: 36px;">2</div>
+<div style="display: flex; gap: 0.8rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 10px;">
+<div style="font-size: 1.4rem; font-weight: 700; color: #16a34a; min-width: 30px;">2</div>
 <div>
-<div style="font-size: 1rem; font-weight: 600;">绝对不让 Agent 碰同一个文件</div>
-<div style="font-size: 0.72rem; color: #888; margin-top: 0.2rem;">Maven 多模块天然隔离，先拆分再上 Teams</div>
+<div style="font-size: 0.9rem; font-weight: 600;">绝对不让 Agent 碰同一个文件</div>
+<div style="font-size: 0.7rem; color: #888; margin-top: 0.15rem;">Maven 多模块天然隔离。没有模块化？先做代码拆分再上 Teams</div>
 </div>
 </div>
 
-<div style="display: flex; gap: 1rem; padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-<div style="font-size: 1.6rem; font-weight: 700; color: #f59e0b; min-width: 36px;">3</div>
+<div style="display: flex; gap: 0.8rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 10px;">
+<div style="font-size: 1.4rem; font-weight: 700; color: #f59e0b; min-width: 30px;">3</div>
 <div>
-<div style="font-size: 1rem; font-weight: 600;">CLAUDE.md 是团队共享大脑</div>
-<div style="font-size: 0.72rem; color: #888; margin-top: 0.2rem;">共享模型、命名规范、接口契约全在里面</div>
+<div style="font-size: 0.9rem; font-weight: 600;">CLAUDE.md 是团队共享大脑</div>
+<div style="font-size: 0.7rem; color: #888; margin-top: 0.15rem;">共享模型定义、命名规范、接口契约。所有 Agent 启动时都会读它</div>
 </div>
 </div>
 
-<div style="display: flex; gap: 1rem; padding: 0.8rem 1.2rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-<div style="font-size: 1.6rem; font-weight: 700; color: #ef4444; min-width: 36px;">4</div>
+<div style="display: flex; gap: 0.8rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 10px;">
+<div style="font-size: 1.4rem; font-weight: 700; color: #ef4444; min-width: 30px;">4</div>
 <div>
-<div style="font-size: 1rem; font-weight: 600;">Lead Agent 会偷偷自己干活</div>
-<div style="font-size: 0.72rem; color: #888; margin-top: 0.2rem;">用 tmux split pane 盯着，别让它跳过分工</div>
+<div style="font-size: 0.9rem; font-weight: 600;">Lead Agent 会偷偷自己干活</div>
+<div style="font-size: 0.7rem; color: #888; margin-top: 0.15rem;">它可能跳过分工直接自己写代码。用 tmux split pane 盯着它的输出</div>
 </div>
 </div>
 
+<div style="display: flex; gap: 0.8rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 10px;">
+<div style="font-size: 1.4rem; font-weight: 700; color: #7c3aed; min-width: 30px;">5</div>
+<div>
+<div style="font-size: 0.9rem; font-weight: 600;">先 Plan 再 Team</div>
+<div style="font-size: 0.7rem; color: #888; margin-top: 0.15rem;">先让单个 Agent 做完整体设计和模块拆分，再启动 Team 并行开发</div>
+</div>
 </div>
 
-<div style="margin-top: 1.5rem; font-size: 0.85rem; color: #666;">
-🎬 Demo 展示模式：tmux split pane，3 个终端同时跑，现场看 3 个 Agent 实时写代码
+<div style="display: flex; gap: 0.8rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 10px;">
+<div style="font-size: 1.4rem; font-weight: 700; color: #0891b2; min-width: 30px;">6</div>
+<div>
+<div style="font-size: 0.9rem; font-weight: 600;">tmux split pane 是最佳展示模式</div>
+<div style="font-size: 0.7rem; color: #888; margin-top: 0.15rem;">3 个终端同时跑，现场看 3 个 Agent 实时写代码，视觉冲击力很强</div>
+</div>
+</div>
+
 </div>
 
 ---
