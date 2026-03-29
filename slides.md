@@ -201,31 +201,33 @@ Spec Kit → Plan → Tasks<br/>
 
 </div>
 
-<div style="margin-top: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap;">
+```mermaid
+graph LR
+    A["💬 飞书发需求"] --> B["🤖 Agent 理解需求"]
+    B --> C["⚙️ 调用 Claude Code<br/>/ Kiro CLI"]
+    C --> D["📝 代码生成"]
+    D --> E["🧪 自动测试"]
+    E --> F{"✅ 通过?"}
+    F -- "是" --> G["🚀 部署 AWS"]
+    F -- "否" --> C
+    G --> H["👀 我验证效果"]
+    H --> I{"满意?"}
+    I -- "是" --> J["🐙 推到 GitHub"]
+    I -- "否<br/>反馈修改" --> B
 
-<div style="background: #0284c7; color: white; padding: 0.5rem 1rem; border-radius: 8px 0 0 8px; font-size: 0.8rem; font-weight: 600;">💬 飞书对话</div>
-<div style="width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 12px solid #0284c7;"></div>
+    style A fill:#0284c7,color:#fff,stroke:none
+    style B fill:#7c3aed,color:#fff,stroke:none
+    style C fill:#7c3aed,color:#fff,stroke:none
+    style D fill:#f59e0b,color:#fff,stroke:none
+    style E fill:#16a34a,color:#fff,stroke:none
+    style F fill:#fff,color:#333,stroke:#16a34a,stroke-width:2px
+    style G fill:#ea580c,color:#fff,stroke:none
+    style H fill:#0284c7,color:#fff,stroke:none
+    style I fill:#fff,color:#333,stroke:#0284c7,stroke-width:2px
+    style J fill:#111,color:#fff,stroke:none
+```
 
-<div style="background: #7c3aed; color: white; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600;">🤖 Agent 执行</div>
-<div style="width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 12px solid #7c3aed;"></div>
-
-<div style="background: #f59e0b; color: white; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600;">⚙️ 代码生成</div>
-<div style="width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 12px solid #f59e0b;"></div>
-
-<div style="background: #16a34a; color: white; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600;">🧪 自动测试</div>
-<div style="width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 12px solid #16a34a;"></div>
-
-<div style="background: #ea580c; color: white; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600;">🚀 部署 AWS</div>
-<div style="width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 12px solid #ea580c;"></div>
-
-<div style="background: #0f172a; color: white; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600;">✅ 本地验证</div>
-<div style="width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 12px solid #0f172a;"></div>
-
-<div style="background: #111; color: white; padding: 0.5rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.8rem; font-weight: 600;">🐙 推到 GitHub</div>
-
-</div>
-
-<div style="margin-top: 1.2rem; text-align: center; font-size: 0.85rem; color: #666;">
+<div style="margin-top: 0.5rem; text-align: center; font-size: 0.85rem; color: #666;">
 💬 全程通过<strong>飞书消息</strong>与 Agent 交互，不需要 SSH 到服务器手动操作
 </div>
 
