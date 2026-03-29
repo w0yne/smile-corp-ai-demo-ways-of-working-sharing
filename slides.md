@@ -13,7 +13,7 @@ mdc: true
 <CoverSlide
   title="Ways of Working"
   subtitle="用 AI Agent 给客户做 AI 编程 Demo 的实战经验"
-  tagline="Yibo Wei · AWS SA Team 内部分享 · 2026.03"
+  tagline="AWS SA Team 内部分享 · 2026.03"
 />
 
 ---
@@ -48,8 +48,8 @@ layout: section
 ### Smile Corp
 
 - 正畸行业头部企业
-- 研发 + 制造 + 数字化，IT 团队 ~50 人
-- 内部系统：Java / Spring / React / Oracle
+- 研发 + 制造 + 数字化，IT 团队上百人
+- 内部系统：Java / Spring / React
 - 已有 AI 意识，但**缺乏 AI 编程落地路径**
 
 </div>
@@ -58,9 +58,9 @@ layout: section
 
 ### 客户真正想知道的
 
-- ❓ AI 写代码靠谱吗？能到什么程度？
-- ❓ 从需求到部署，AI 能参与多少环节？
-- ❓ 需要什么工具？怎么跟现有工作流结合？
+- ❓ OpenClaw 和 Claude Code 能做什么？
+- ❓ AI 写代码靠谱吗？从需求到部署能参与多少？
+- ❓ 怎么跟现有工作流结合？
 - ❓ 成本和 ROI 是什么样？
 
 </div>
@@ -68,7 +68,7 @@ layout: section
 </div>
 
 <div style="margin-top: 1.5rem; padding: 1rem 1.5rem; background: #f0f9ff; border-left: 4px solid #0284c7; border-radius: 8px; font-size: 0.9rem;">
-💡 <strong>关键洞察</strong>：客户不需要 AI 天花板的展示，需要的是<strong>看得懂、学得会、用得上</strong>的实战路径。
+💡 <strong>受众</strong>：产研团队全员（开发、测试、产品经理、运营等），每次分享 2 小时
 </div>
 
 ---
@@ -77,16 +77,21 @@ layout: section
 
 <ProcessChevrons
   :steps="[
-    { label: 'Demo 1', sublabel: '3/19', detail: '全流程 · 三个场景', color: '#0284c7' },
-    { label: '客户反馈', sublabel: '3/20-24', detail: '收集需求 · 分析差距', color: '#6b7280' },
-    { label: 'Demo 2', sublabel: '3/25-26', detail: '多 Agent · 深度场景', color: '#16a34a' }
+    { label: 'Session 1', sublabel: 'OpenClaw', detail: '端到端软件研发', color: '#0284c7' },
+    { label: '埋下伏笔', sublabel: '引出深度话题', detail: 'Claude Code 初体验', color: '#6b7280' },
+    { label: 'Session 2', sublabel: 'Claude Code', detail: '深度技术分享', color: '#16a34a' }
   ]"
   :details="[
-    { borderColor: '#0284c7', items: ['Spec Kit → AI-DLC → 部署', '1 小时演示 + Q&A', '证明 AI 编程可行'] },
-    { borderColor: '#6b7280', items: ['客户提出更复杂场景', '涉及多人协作开发', '需要贴近真实业务'] },
-    { borderColor: '#16a34a', items: ['SmileGuard 多 Agent', '3 agent 并行开发', '端到端全自动'] }
+    { borderColor: '#0284c7', items: ['Kiro CLI + Claude Code + OpenClaw', '从需求到部署全流程', '让客户看到 AI 编程全貌'] },
+    { borderColor: '#6b7280', items: ['Session 1 中展示 Claude Code 能力', '客户对多 Agent 协作产生兴趣', '自然过渡到深度分享'] },
+    { borderColor: '#16a34a', items: ['Agent Teams 多 Agent 并行开发', 'SmileGuard 完整项目实战', '深入 Claude Code 工作方式'] }
   ]"
 />
+
+<div style="margin-top: 1.5rem; padding: 1rem 1.5rem; background: #fef9c3; border-left: 4px solid #f59e0b; border-radius: 8px; font-size: 0.9rem;">
+⚡ <strong>准备方式</strong>：全程通过跟 OpenClaw（AI Agent）聊天完成 Demo 设计和实现 — Agent 调用 Claude Code 等工具做具体编码、部署。<br/>
+<strong>第一次</strong>：~5-6 小时（跑通 OpenClaw + Claude Code 协作流程）→ <strong>第二次</strong>：~2-3 小时（流程熟练，效率翻倍）
+</div>
 
 ---
 layout: section
@@ -100,47 +105,72 @@ layout: section
 
 ---
 
-# 核心工具栈：三剑客
+# 核心工具栈
 
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem;">
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 1rem;">
 
-<div style="padding: 1.5rem; border: 2px solid #0284c7; border-radius: 12px; text-align: center;">
-<div style="font-size: 2.5rem;">🦞</div>
-<div style="font-size: 1.1rem; font-weight: 700; margin: 0.5rem 0;">OpenClaw</div>
-<div style="font-size: 0.8rem; color: #666;">
+<div style="padding: 1.2rem; border: 2px solid #0284c7; border-radius: 12px; text-align: center;">
+<div style="font-size: 2rem;">🦞</div>
+<div style="font-size: 1rem; font-weight: 700; margin: 0.3rem 0;">OpenClaw</div>
+<div style="font-size: 0.75rem; color: #666;">
 AI Agent 协调中枢<br/>
 飞书/Telegram 多渠道接入<br/>
-文件管理 · 浏览器控制<br/>
 子 Agent 调度 · Cron 自动化
 </div>
 </div>
 
-<div style="padding: 1.5rem; border: 2px solid #f59e0b; border-radius: 12px; text-align: center;">
-<div style="font-size: 2.5rem;">🤖</div>
-<div style="font-size: 1.1rem; font-weight: 700; margin: 0.5rem 0;">Claude Code</div>
-<div style="font-size: 0.8rem; color: #666;">
+<div style="padding: 1.2rem; border: 2px solid #f59e0b; border-radius: 12px; text-align: center;">
+<div style="font-size: 2rem;">🤖</div>
+<div style="font-size: 1rem; font-weight: 700; margin: 0.3rem 0;">Claude Code</div>
+<div style="font-size: 0.75rem; color: #666;">
 代码生成与审查<br/>
 Agent Teams 多 Agent 并行<br/>
-Superpowers 增强模式<br/>
-Playwright 浏览器测试
+Superpowers 增强模式
 </div>
 </div>
 
-<div style="padding: 1.5rem; border: 2px solid #16a34a; border-radius: 12px; text-align: center;">
-<div style="font-size: 2.5rem;">⚡</div>
-<div style="font-size: 1.1rem; font-weight: 700; margin: 0.5rem 0;">Kiro CLI</div>
-<div style="font-size: 0.8rem; color: #666;">
+<div style="padding: 1.2rem; border: 2px solid #16a34a; border-radius: 12px; text-align: center;">
+<div style="font-size: 2rem;">⚡</div>
+<div style="font-size: 1rem; font-weight: 700; margin: 0.3rem 0;">Kiro CLI</div>
+<div style="font-size: 0.75rem; color: #666;">
 结构化开发流程<br/>
 Spec Kit → Plan → Tasks<br/>
-非交互式 CLI 模式<br/>
-支持 Opus / Sonnet / DeepSeek
+非交互式 CLI 模式
 </div>
 </div>
 
 </div>
 
-<div style="margin-top: 1.5rem; text-align: center; font-size: 0.85rem; color: #888;">
-底层模型：Claude Opus 4.6 via Amazon Bedrock（1M context · 128K output）
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1rem;">
+
+<div style="padding: 0.8rem; border: 1px solid #e5e7eb; border-radius: 8px; text-align: center;">
+<div style="font-size: 1.2rem;">🐙</div>
+<div style="font-size: 0.85rem; font-weight: 600;">GitHub</div>
+<div style="font-size: 0.7rem; color: #888;">代码托管 · CI/CD<br/>GitHub Actions · Pages</div>
+</div>
+
+<div style="padding: 0.8rem; border: 1px solid #e5e7eb; border-radius: 8px; text-align: center;">
+<div style="font-size: 1.2rem;">🎭</div>
+<div style="font-size: 0.85rem; font-weight: 600;">Playwright</div>
+<div style="font-size: 0.7rem; color: #888;">浏览器自动化<br/>E2E 测试 · 截图验证</div>
+</div>
+
+<div style="padding: 0.8rem; border: 1px solid #e5e7eb; border-radius: 8px; text-align: center;">
+<div style="font-size: 1.2rem;">🔊</div>
+<div style="font-size: 0.85rem; font-weight: 600;">TTS / ElevenLabs</div>
+<div style="font-size: 0.7rem; color: #888;">AI 语音生成<br/>介绍视频旁白</div>
+</div>
+
+<div style="padding: 0.8rem; border: 1px solid #e5e7eb; border-radius: 8px; text-align: center;">
+<div style="font-size: 1.2rem;">📊</div>
+<div style="font-size: 0.85rem; font-weight: 600;">Slidev</div>
+<div style="font-size: 0.7rem; color: #888;">Markdown → PPT<br/>Vue 组件 · GitHub Pages</div>
+</div>
+
+</div>
+
+<div style="margin-top: 1rem; padding: 0.8rem 1.2rem; background: #fef9c3; border-left: 4px solid #f59e0b; border-radius: 8px; font-size: 0.8rem;">
+🎬 <strong>彩蛋</strong>：OpenClaw 的介绍视频也是通过跟另一个 OpenClaw 实例（Matrix）聊天生成的 — 写脚本 + TTS 配音，前后 ~15 分钟
 </div>
 
 ---
