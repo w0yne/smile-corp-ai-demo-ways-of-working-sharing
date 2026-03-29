@@ -416,7 +416,7 @@ AI 生成的 CDK 默认用 Public ALB + HTTP，不符合企业安全策略。但
 
 # Demo 1 项目产出一览
 
-<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+<div style="display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 1rem; margin-top: 1rem;">
 
 <div>
 
@@ -426,9 +426,10 @@ AI 生成的 CDK 默认用 Public ALB + HTTP，不符合企业安全策略。但
 scenario-1-speckit/
 ├── requirements/
 │   └── requirement.md
-├── specs/              ← Spec Kit 生成
-│   └── 001-ortho-case-dashboard/
-├── data/patients.js    ← Mock 数据
+├── specs/          ← Spec Kit
+│   └── 001-ortho.../
+├── data/
+│   └── patients.js
 ├── scripts/
 │   ├── app.js
 │   ├── filter.js
@@ -446,10 +447,10 @@ scenario-1-speckit/
 
 ```
 scenario-2-aidlc/
-├── aidlc-docs/         ← AI-DLC 文档
+├── aidlc-docs/     ← AI-DLC 文档
 │   ├── inception/
 │   └── construction/
-├── packages/           ← 6 个微服务
+├── packages/       ← 6 个微服务
 │   ├── api-gateway/
 │   ├── plan-service/
 │   ├── approval-service/
@@ -468,12 +469,14 @@ scenario-2-aidlc/
 
 ```
 scenario-3-deploy/
-├── app/                ← 应用代码
+├── app/            ← 应用代码
 │   ├── packages/
-│   └── docker-compose.yml
-├── infra/              ← CDK Stack
+│   └── docker-
+│       compose.yml
+├── infra/          ← CDK
 │   ├── lib/
-│   │   └── ortho-stack.ts
+│   │   └── ortho-
+│   │     stack.ts
 │   ├── bin/
 │   ├── cdk.json
 │   └── outputs.json
