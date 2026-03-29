@@ -571,25 +571,29 @@ layout: section
 
 ---
 
-# 💸 成本与踩坑
+# 💸 成本与效率
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
 
 <div>
 
-### Demo 成本
+### Demo 成本对比
 
 <StatHighlight
   :stats="[
-    { value: '~$250', label: 'Demo 1 总成本', color: '#0284c7' },
-    { value: '~$100+', label: 'Demo 2 总成本', color: '#16a34a' }
+    { value: '~$250', label: 'Demo 1（OpenClaw）', color: '#0284c7' },
+    { value: '~$100+', label: 'Demo 2（Claude Code）', color: '#16a34a' }
   ]"
 />
 
-<div style="margin-top: 1rem; font-size: 0.85rem;">
+<div style="margin-top: 1.5rem; font-size: 0.85rem;">
 
-- 第二次效率提升，成本也降了
-- 其中 **$20.74 白烧**在 Superpowers 调试上
+**成本构成**：主要是 Bedrock API 调用费（Claude Opus 4.6）
+
+**为什么第二次更便宜？**
+- 工作流程已经跑通，不需要反复调试
+- Agent 的规则（CLAUDE.md）更成熟
+- 对工具特性更了解，避免了无效调用
 
 </div>
 
@@ -597,73 +601,83 @@ layout: section
 
 <div>
 
-### Superpowers Writing-Plans 踩坑
+### 准备时间对比
 
-<div style="padding: 0.8rem; background: #fef2f2; border-left: 4px solid #ef4444; border-radius: 8px; font-size: 0.8rem;">
-仅 Demo 2 遇到：writing-plans 对整个项目一次性生成计划 → 输出量 40K-50K token → 超限卡死。<br/><br/>
-<strong>根因</strong>：不是 Bedrock 限流，是 Superpowers 本身的设计问题<br/>
-<strong>解法</strong>：按模块拆分，分别生成 plan
+<StatHighlight
+  :stats="[
+    { value: '5-6h', label: 'Demo 1 准备时间', color: '#f59e0b' },
+    { value: '2-3h', label: 'Demo 2 准备时间', color: '#16a34a' }
+  ]"
+/>
+
+<div style="margin-top: 1.5rem; font-size: 0.85rem;">
+
+**效率提升来源**
+- 与 Agent 的协作模式已建立
+- 积累了可复用的 Prompt 和规则
+- Agent 的记忆系统保留了上次的经验教训
+- 工具链（GitHub Actions、部署脚本）已就绪
+
 </div>
 
 </div>
 
+</div>
+
+<div style="margin-top: 1rem; padding: 0.8rem 1.2rem; background: #f0f9ff; border-left: 4px solid #0284c7; border-radius: 8px; font-size: 0.85rem;">
+💡 <strong>核心洞察</strong>：第一次投入高是因为在建立人 + Agent 的协作流程。一旦流程跑通，后续项目边际成本快速下降。
 </div>
 
 ---
 
-# 给 AI 的规则：SA 应该怎么要求 Agent
+# 给 AI 的规则：写进 CLAUDE.md 的实战经验
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
-
-<div>
-
-### 写进 CLAUDE.md / Prompt 的规则
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
 
 <div style="display: flex; gap: 1rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 0.5rem;">
 <div style="font-size: 1.2rem; font-weight: 700; color: #0284c7;">1</div>
-<div style="font-size: 0.85rem;"><strong>先读文档再动手</strong><br/><span style="color:#888;">要求 Agent 先查 examples/ 和官方文档</span></div>
+<div style="font-size: 0.82rem;"><strong>先读文档再动手</strong><br/><span style="color:#888;">动手之前先花 5 分钟搜官方文档和 examples/，避免重复造轮子</span></div>
 </div>
 
 <div style="display: flex; gap: 1rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 0.5rem;">
 <div style="font-size: 1.2rem; font-weight: 700; color: #16a34a;">2</div>
-<div style="font-size: 0.85rem;"><strong>先本地验证再部署</strong><br/><span style="color:#888;">不要每次改一行就重新部署等 6 分钟</span></div>
+<div style="font-size: 0.82rem;"><strong>先本地验证再上云</strong><br/><span style="color:#888;">不要每次改一行就重新部署等 6 分钟，先用同版本依赖在本地跑通</span></div>
 </div>
 
 <div style="display: flex; gap: 1rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 0.5rem;">
 <div style="font-size: 1.2rem; font-weight: 700; color: #f59e0b;">3</div>
-<div style="font-size: 0.85rem;"><strong>连续失败 2 次就读源码</strong><br/><span style="color:#888;">盲试参数不如理解机制</span></div>
+<div style="font-size: 0.82rem;"><strong>连续失败 2 次就停下来读源码</strong><br/><span style="color:#888;">盲试参数不如理解机制，读源码找根因比猜快 10 倍</span></div>
+</div>
+
+<div style="display: flex; gap: 1rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 0.5rem;">
+<div style="font-size: 1.2rem; font-weight: 700; color: #ef4444;">4</div>
+<div style="font-size: 0.82rem;"><strong>客户数据绝对不推 GitHub</strong><br/><span style="color:#888;">git add 之前必须检查，任何客户真实数据不得进入代码仓库</span></div>
+</div>
+
+<div style="display: flex; gap: 1rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 0.5rem;">
+<div style="font-size: 1.2rem; font-weight: 700; color: #7c3aed;">5</div>
+<div style="font-size: 0.82rem;"><strong>一次只改一个变量</strong><br/><span style="color:#888;">调试时不要同时改 3 个东西，改一个验证通过再改下一个</span></div>
+</div>
+
+<div style="display: flex; gap: 1rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 0.5rem;">
+<div style="font-size: 1.2rem; font-weight: 700; color: #0891b2;">6</div>
+<div style="font-size: 0.82rem;"><strong>诚实报告不确定性</strong><br/><span style="color:#888;">没把握时说「试一下看看」，不说「应该没问题了」</span></div>
+</div>
+
+<div style="display: flex; gap: 1rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 0.5rem;">
+<div style="font-size: 1.2rem; font-weight: 700; color: #dc2626;">7</div>
+<div style="font-size: 0.82rem;"><strong>最少代码量优先</strong><br/><span style="color:#888;">先问「能不能用现成工具+配置解决」，再考虑写代码</span></div>
 </div>
 
 <div style="display: flex; gap: 1rem; padding: 0.6rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px;">
-<div style="font-size: 1.2rem; font-weight: 700; color: #ef4444;">4</div>
-<div style="font-size: 0.85rem;"><strong>客户数据绝对不推 GitHub</strong><br/><span style="color:#888;">git add 之前必须检查敏感信息</span></div>
+<div style="font-size: 1.2rem; font-weight: 700; color: #ea580c;">8</div>
+<div style="font-size: 0.82rem;"><strong>用客户要求的工具做事</strong><br/><span style="color:#888;">说用 Kiro 就用 Kiro，不要偷偷用别的工具替代</span></div>
 </div>
 
 </div>
 
-<div>
-
-### SA 自己的纪律
-
-<TChart
-  leftTitle="❌ 别这样"
-  rightTitle="✅ 应该这样"
-  leftColor="#ef4444"
-  rightColor="#16a34a"
-  :leftItems="[
-    { text: '让 Agent 自由发挥不加约束' },
-    { text: '不确定时说「应该没问题了」' },
-    { text: '用 subagent 替代客户指定的工具' }
-  ]"
-  :rightItems="[
-    { text: '在 CLAUDE.md 里写清楚规则' },
-    { text: '诚实说「试一下看看」' },
-    { text: '客户要用 Kiro 就用 Kiro' }
-  ]"
-/>
-
-</div>
-
+<div style="margin-top: 0.8rem; font-size: 0.8rem; color: #666; text-align: center;">
+这些规则写进 CLAUDE.md 或 AGENTS.md 后，Agent 每次启动都会读取并遵守
 </div>
 
 ---
